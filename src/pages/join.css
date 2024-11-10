@@ -1,0 +1,250 @@
+/* General Styling for the Join Form */
+.join-form {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+    background: linear-gradient(135deg, #6a0dad, #3b6bc5); /* الأزرق البنفسجي */
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+.join-form h2 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+/* Section Headers */
+.section h3 {
+    font-size: 1.8em;
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: 600;
+    animation: fadeIn 0.7s ease-out;
+    letter-spacing: 0.5px;
+}
+
+/* Personal Information Section */
+.personal {
+    color: #ffdd57;
+}
+
+/* Academic Information Section */
+.information {
+    color: #fff;
+}
+
+/* Input and Textarea Styling */
+input,
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #ffdd57;
+    outline: none;
+    box-shadow: 0 0 12px rgba(255, 221, 87, 0.5);
+    background-color: #fff;
+}
+
+/* Specific Styling for Date Input */
+.date-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+}
+
+.date-input:focus {
+    border-color: #ffdd57;
+    outline: none;
+    box-shadow: 0 0 12px rgba(255, 221, 87, 0.5);
+    background-color: #fff;
+}
+
+textarea {
+    min-height: 120px;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffdd57;
+    color: #4e36cc;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: #fff;
+    color: #4e36cc;
+    transform: scale(1.05);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Popup Styling */
+.popup-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out, transform 0.3s ease;
+}
+
+.popup-message.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1.05);
+}
+
+.popup-message-content {
+    background: linear-gradient(135deg, #6A4CFF, #FF7F50);
+    padding: 50px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.5s ease-out;
+    transform: scale(0.9);
+}
+
+.popup-message-content h3 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.popup-message-content p {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.popup-message-content .close-btn {
+    background-color: #fff;
+    color: #6A4CFF;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.popup-message-content .close-btn:hover {
+    background-color: #FF7F50;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* File Input Styling */
+input[type="file"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(255, 221, 87, 0.5);
+}
+/* رسالة تفاعل لتحديد الحقول الفارغة */
+.error-message {
+    background-color: #FF4D4D;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    animation: shake 0.5s ease-out;
+    text-align: center;
+}
+
+.error-message h3 {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* تأثير الاهتزاز */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
