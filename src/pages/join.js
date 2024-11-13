@@ -42,15 +42,15 @@ const Join = () => {
         e.preventDefault();
         let errorFields = {};
 
-        if (!formData.firstName) errorFields.firstName = "الاسم الأول مطلوب!";
-        if (!formData.lastName) errorFields.lastName = "الاسم الأخير مطلوب!";
-        if (!formData.dob) errorFields.dob = "تاريخ الميلاد مطلوب!";
-        if (!formData.email) errorFields.email = "البريد الإلكتروني مطلوب!";
-        if (!formData.phone) errorFields.phone = "رقم الهاتف مطلوب!";
-        if (!formData.university) errorFields.university = "الجامعة مطلوبة!";
-        if (!formData.specialty) errorFields.specialty = "التخصص مطلوب!";
-        if (!formData.level) errorFields.level = "المستوى الأكاديمي مطلوب!";
-        if (!formData.matriculationNumber) errorFields.matriculationNumber = "رقم التسجيل مطلوب!";
+        if (!formData.firstName) errorFields.firstName = "First name is required!";
+        if (!formData.lastName) errorFields.lastName = "Last name is required!";
+        if (!formData.dob) errorFields.dob = "Date of birth is required!";
+        if (!formData.email) errorFields.email = "Email is required!";
+        if (!formData.phone) errorFields.phone = "Phone number is required!";
+        if (!formData.university) errorFields.university = "University is required!";
+        if (!formData.specialty) errorFields.specialty = "Specialty is required!";
+        if (!formData.level) errorFields.level = "Academic level is required!";
+        if (!formData.matriculationNumber) errorFields.matriculationNumber = "Matriculation number is required!";
 
         if (Object.keys(errorFields).length > 0) {
             setErrors(errorFields);
@@ -60,7 +60,7 @@ const Join = () => {
         try {
             const docRef = await addDoc(collection(db, "members"), formData);
             console.log("Document written with ID: ", docRef.id);
-            setPopupMessage('تم إرسال طلبك بنجاح!');
+            setPopupMessage('Your application has been successfully submitted!');
             setPopupActive(true);
             setFormData({
                 firstName: '',
@@ -79,7 +79,7 @@ const Join = () => {
             setErrors({});
         } catch (error) {
             console.error("Error adding document: ", error);
-            setPopupMessage('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+            setPopupMessage('An error occurred during submission. Please try again.');
             setPopupActive(true);
         }
     };
@@ -90,14 +90,14 @@ const Join = () => {
 
     return (
         <div className="join-form">
-            <h2>انضم إلى نادي فارفي</h2>
+            <h2>Join Varphi Club</h2>
             <form onSubmit={handleSubmit}>
                 <div className="section">
-                    <h3 className="personal">المعلومات الشخصية</h3>
+                    <h3 className="personal">Personal Information</h3>
                     <input
                         type="text"
                         name="firstName"
-                        placeholder="الاسم الأول"
+                        placeholder="First Name"
                         value={formData.firstName}
                         onChange={handleChange}
                     />
@@ -105,7 +105,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="lastName"
-                        placeholder="الاسم الأخير"
+                        placeholder="Last Name"
                         value={formData.lastName}
                         onChange={handleChange}
                     />
@@ -121,7 +121,7 @@ const Join = () => {
                     <input
                         type="email"
                         name="email"
-                        placeholder="البريد الإلكتروني"
+                        placeholder="Email"
                         value={formData.email}
                         onChange={handleChange}
                     />
@@ -129,7 +129,7 @@ const Join = () => {
                     <input
                         type="tel"
                         name="phone"
-                        placeholder="رقم الهاتف"
+                        placeholder="Phone Number"
                         value={formData.phone}
                         onChange={handleChange}
                     />
@@ -137,11 +137,11 @@ const Join = () => {
                 </div>
 
                 <div className="section">
-                    <h3 className="information">المعلومات الأكاديمية</h3>
+                    <h3 className="information">Academic Information</h3>
                     <input
                         type="text"
                         name="university"
-                        placeholder="الجامعة"
+                        placeholder="University"
                         value={formData.university}
                         onChange={handleChange}
                     />
@@ -149,7 +149,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="specialty"
-                        placeholder="التخصص"
+                        placeholder="Specialty"
                         value={formData.specialty}
                         onChange={handleChange}
                     />
@@ -157,7 +157,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="level"
-                        placeholder="المستوى الأكاديمي"
+                        placeholder="Academic Level"
                         value={formData.level}
                         onChange={handleChange}
                     />
@@ -165,7 +165,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="matriculationNumber"
-                        placeholder="رقم التسجيل"
+                        placeholder="Matriculation Number"
                         value={formData.matriculationNumber}
                         onChange={handleChange}
                     />
@@ -173,33 +173,33 @@ const Join = () => {
                 </div>
 
                 <div className="section">
-                    <h3 className="social">وسائل التواصل الاجتماعي</h3>
+                    <h3 className="social">Social Media</h3>
                     <input
                         type="text"
                         name="socialMedia"
-                        placeholder="أضف حسابات التواصل الاجتماعي الخاصة بك"
+                        placeholder="Add your social media accounts"
                         value={formData.socialMedia}
                         onChange={handleChange}
                     />
                 </div>
 
                 <div className="section">
-                    <h3 className="experience">الخبرة</h3>
+                    <h3 className="experience">Experience</h3>
                     <textarea
                         name="experience"
-                        placeholder="حدثنا عن خبراتك السابقة"
+                        placeholder="Tell us about your previous experiences"
                         value={formData.experience}
                         onChange={handleChange}
                     ></textarea>
                 </div>
 
-                <button type="submit" className="submit-btn">إرسال</button>
+                <button type="submit" className="submit-btn">Submit</button>
             </form>
 
             <div className={`popup-message ${popupActive ? 'active' : ''}`}>
                 <div className="popup-message-content">
                     <h3>{popupMessage}</h3>
-                    <button className="close-btn" onClick={closePopup}>إغلاق</button>
+                    <button className="close-btn" onClick={closePopup}>Close</button>
                 </div>
             </div>
         </div>
