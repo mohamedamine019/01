@@ -1,67 +1,86 @@
-
 .footer {
-    background-color: #4e36cc; 
-    padding: 40px 20px;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Roboto', sans-serif;
-    animation: slideInUp 1s ease-out;
-  }
-  
-  .footer p {
-    margin-top: 20px;
-    font-size: 1.1em;
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
-  
-  .social-links {
-    margin-bottom: 20px;
-  }
-  
-  .social-icon {
-    color: #fff;
-    font-size: 2.2em;
-    margin: 0 15px;
-    transition: all 0.3s ease;
-  }
-  
-  .social-icon:hover {
-    color: #ffdd57; 
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .social-icon:focus {
-    outline: none;
-    box-shadow: 0 0 10px #ffdd57;
-  }
-  
-  
-  @keyframes slideInUp {
-    0% {
+  background-color: #4e36cc; 
+  padding: 40px 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  animation: slideInUp 1s ease-out;
+}
+
+.footer p {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.social-links {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 2.2em;
+  margin: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #ffdd57; 
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon:focus {
+  outline: none;
+  box-shadow: 0 0 10px #ffdd57;
+}
+
+@keyframes slideInUp {
+  0% {
       transform: translateY(50px);
       opacity: 0;
-    }
-    100% {
+  }
+  100% {
       transform: translateY(0);
       opacity: 1;
-    }
   }
-  
-  @media (max-width: 768px) {
-    .footer {
+}
+
+@media (max-width: 768px) {
+  .footer {
       padding: 30px 10px;
-    }
-  
-    .footer p {
-      font-size: 1em;
-    }
-  
-    .social-icon {
-      font-size: 1.8em;
-    }
   }
+
+  .footer p {
+      font-size: 1em;
+  }
+
+  .social-icon {
+      font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+      padding: 25px 10px;
+  }
+
+  .footer p {
+      font-size: 0.9em;
+  }
+
+  .social-icon {
+      font-size: 1.6em;
+  }
+
+  .social-links {
+      gap: 10px;
+  }
+}

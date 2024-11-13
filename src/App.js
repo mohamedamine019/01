@@ -9,7 +9,7 @@ import MembresList from './pages/MembresList';
 import Join from './pages/join';
 import Header from './competens/header';
 import Footer from './competens/footer';
-import BackToTop from './competens/BackToTop'; // استيراد BackToTop
+import BackToTop from './competens/BackToTop'; 
 import './App.css';
 
 function App() {

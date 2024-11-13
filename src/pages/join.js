@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { db } from './firebase';  // Make sure Firebase is set up properly in your project
+import { db } from './firebase'; // تأكد من إعداد Firebase بشكل صحيح
 import { collection, addDoc } from 'firebase/firestore';
-import './join.css';  // Make sure the CSS file is linked properly
+import './join.css'; // تأكد من ربط ملف CSS
 
 const Join = () => {
     const [formData, setFormData] = useState({
@@ -23,6 +23,7 @@ const Join = () => {
     const [popupMessage, setPopupMessage] = useState('');
     const [errors, setErrors] = useState({});
 
+    // تحديث بيانات النموذج
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -31,6 +32,7 @@ const Join = () => {
         }));
     };
 
+    // تحديث الملف المرفق
     const handleFileChange = (e) => {
         setFormData((prevData) => ({
             ...prevData,
@@ -38,53 +40,69 @@ const Join = () => {
         }));
     };
 
+    // التحقق من المدخلات وإرسال النموذج
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let errorMessage = '';
         let errorFields = {};
 
-        // Validate required fields
-        if (!formData.firstName) errorFields.firstName = "First name is required!";
-        if (!formData.lastName) errorFields.lastName = "Last name is required!";
-        if (!formData.dob) errorFields.dob = "Date of birth is required!";
-        if (!formData.email) errorFields.email = "Email is required!";
-        if (!formData.phone) errorFields.phone = "Phone number is required!";
-        if (!formData.university) errorFields.university = "University is required!";
-        if (!formData.specialty) errorFields.specialty = "Specialty is required!";
-        if (!formData.level) errorFields.level = "Academic level is required!";
-        if (!formData.matriculationNumber) errorFields.matriculationNumber = "Matriculation number is required!";
+        // تحقق من الحقول المطلوبة
+        if (!formData.firstName) errorFields.firstName = "الاسم الأول مطلوب!";
+        if (!formData.lastName) errorFields.lastName = "الاسم الأخير مطلوب!";
+        if (!formData.dob) errorFields.dob = "تاريخ الميلاد مطلوب!";
+        if (!formData.email) errorFields.email = "البريد الإلكتروني مطلوب!";
+        if (!formData.phone) errorFields.phone = "رقم الهاتف مطلوب!";
+        if (!formData.university) errorFields.university = "الجامعة مطلوبة!";
+        if (!formData.specialty) errorFields.specialty = "التخصص مطلوب!";
+        if (!formData.level) errorFields.level = "المستوى الأكاديمي مطلوب!";
+        if (!formData.matriculationNumber) errorFields.matriculationNumber = "رقم التسجيل مطلوب!";
 
         if (Object.keys(errorFields).length > 0) {
             setErrors(errorFields);
-            return; // Don't submit the form if there are errors
+            return;
         }
 
         try {
             const docRef = await addDoc(collection(db, "members"), formData);
             console.log("Document written with ID: ", docRef.id);
-            setPopupMessage('Your application has been submitted successfully!');
-            setPopupActive(true); // Show success message
+            setPopupMessage('تم إرسال طلبك بنجاح!');
+            setPopupActive(true);
+            setFormData({  // إعادة تعيين النموذج
+                firstName: '',
+                lastName: '',
+                dob: '',
+                email: '',
+                phone: '',
+                university: '',
+                specialty: '',
+                level: '',
+                matriculationNumber: '',
+                socialMedia: '',
+                experience: '',
+                file: null,
+            });
+            setErrors({});
         } catch (error) {
             console.error("Error adding document: ", error);
-            setPopupMessage('Something went wrong, please try again.');
-            setPopupActive(true); // Show error message
+            setPopupMessage('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+            setPopupActive(true);
         }
     };
 
+    // إغلاق الرسالة المنبثقة
     const closePopup = () => {
-        setPopupActive(false); // Close the popup
+        setPopupActive(false);
     };
 
     return (
         <div className="join-form">
-            <h2>Join Varphi Club</h2>
+            <h2>انضم إلى نادي فارفي</h2>
             <form onSubmit={handleSubmit}>
                 <div className="section">
-                    <h3 className="personal">Personal Information</h3>
+                    <h3 className="personal">المعلومات الشخصية</h3>
                     <input
                         type="text"
                         name="firstName"
-                        placeholder="First Name"
+                        placeholder="الاسم الأول"
                         value={formData.firstName}
                         onChange={handleChange}
                     />
@@ -92,7 +110,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="lastName"
-                        placeholder="Last Name"
+                        placeholder="الاسم الأخير"
                         value={formData.lastName}
                         onChange={handleChange}
                     />
@@ -108,7 +126,7 @@ const Join = () => {
                     <input
                         type="email"
                         name="email"
-                        placeholder="Email"
+                        placeholder="البريد الإلكتروني"
                         value={formData.email}
                         onChange={handleChange}
                     />
@@ -116,7 +134,7 @@ const Join = () => {
                     <input
                         type="tel"
                         name="phone"
-                        placeholder="Phone Number"
+                        placeholder="رقم الهاتف"
                         value={formData.phone}
                         onChange={handleChange}
                     />
@@ -124,11 +142,11 @@ const Join = () => {
                 </div>
 
                 <div className="section">
-                    <h3 className="information">Academic Information</h3>
+                    <h3 className="information">المعلومات الأكاديمية</h3>
                     <input
                         type="text"
                         name="university"
-                        placeholder="University"
+                        placeholder="الجامعة"
                         value={formData.university}
                         onChange={handleChange}
                     />
@@ -136,7 +154,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="specialty"
-                        placeholder="Specialty"
+                        placeholder="التخصص"
                         value={formData.specialty}
                         onChange={handleChange}
                     />
@@ -144,7 +162,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="level"
-                        placeholder="Academic Level"
+                        placeholder="المستوى الأكاديمي"
                         value={formData.level}
                         onChange={handleChange}
                     />
@@ -152,7 +170,7 @@ const Join = () => {
                     <input
                         type="text"
                         name="matriculationNumber"
-                        placeholder="Matriculation Number"
+                        placeholder="رقم التسجيل"
                         value={formData.matriculationNumber}
                         onChange={handleChange}
                     />
@@ -160,42 +178,34 @@ const Join = () => {
                 </div>
 
                 <div className="section">
-                    <h3 className="social">Social Media</h3>
+                    <h3 className="social">وسائل التواصل الاجتماعي</h3>
                     <input
                         type="text"
                         name="socialMedia"
-                        placeholder="Add your social media accounts"
+                        placeholder="أضف حسابات التواصل الاجتماعي الخاصة بك"
                         value={formData.socialMedia}
                         onChange={handleChange}
                     />
                 </div>
 
                 <div className="section">
-                    <h3 className="experience">Experience</h3>
+                    <h3 className="experience">الخبرة</h3>
                     <textarea
                         name="experience"
-                        placeholder="Tell us about your previous experiences"
+                        placeholder="حدثنا عن خبراتك السابقة"
                         value={formData.experience}
                         onChange={handleChange}
                     ></textarea>
                 </div>
 
-                <div className="section">
-                    <input
-                        type="file"
-                        name="file"
-                        onChange={handleFileChange}
-                    />
-                </div>
-
-                <button type="submit" className="submit-btn">Submit</button>
+                <button type="submit" className="submit-btn">إرسال</button>
             </form>
 
-            {/* Popup Message */}
+            {/* رسالة منبثقة */}
             <div className={`popup-message ${popupActive ? 'active' : ''}`}>
                 <div className="popup-message-content">
                     <h3>{popupMessage}</h3>
-                    <button className="close-btn" onClick={closePopup}>Close</button>
+                    <button className="close-btn" onClick={closePopup}>إغلاق</button>
                 </div>
             </div>
         </div>

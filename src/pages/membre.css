@@ -1,7 +1,5 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
-/* membre.css */
 
-/* Styles for Membre Card */
 .membre-card {
     position: relative;
     width: 300px;
@@ -21,7 +19,6 @@
     background: linear-gradient(135deg, #4e36cc, #6a4df9);
   }
   
-  /* Image styles with round shape and hover effect */
   .membre-image {
     position: relative;
     height: 200px;
