@@ -1,37 +1,33 @@
-/* إعدادات أساسية للنموذج */
 .join-form {
     width: 90%;
     max-width: 900px;
     margin: 50px auto;
-    background: linear-gradient(135deg, #4B0082, #8A2BE2); /* تدرج لوني جميل */
+    background: linear-gradient(135deg, #4B0082, #8A2BE2);
     padding: 50px;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* ظل جميل */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1s ease-out;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     color: #f8f8f8;
 }
 
-/* رؤوس الأقسام */
 .join-form h2 {
     font-size: 2.8em;
     margin-bottom: 30px;
     font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* تأثير التظليل */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
     color: #fff;
 }
 
-/* تحديث رؤوس الأقسام */
 .section h3 {
     font-size: 1.8em;
-    color: #FFD700; /* اللون الذهبي الجذاب */
+    color: #FFD700;
     font-weight: 600;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* تأثير الظل للنص */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* الحقول النصية */
 input,
 textarea {
     width: 100%;
@@ -43,21 +39,20 @@ textarea {
     font-size: 1.1em;
     color: #333;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 input:focus,
 textarea:focus {
-    border-color: #FFD700; /* اللون الذهبي عند التركيز */
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* تأثير الظل عند التركيز */
+    border-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     outline: none;
 }
 
-/* الأزرار */
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(90deg, #FFD700, #FF4500); /* تدرج لوني للأزرار */
+    background: linear-gradient(90deg, #FFD700, #FF4500);
     color: #fff;
     font-size: 1.5em;
     font-weight: bold;
@@ -70,11 +65,10 @@ textarea:focus {
 }
 
 .submit-btn:hover {
-    background: linear-gradient(90deg, #FF4500, #FFD700); /* تأثير التدرج عند المرور */
+    background: linear-gradient(90deg, #FF4500, #FFD700);
     transform: scale(1.05);
 }
 
-/* الرسالة المنبثقة */
 .popup-message {
     position: fixed;
     top: 0;
@@ -97,7 +91,7 @@ textarea:focus {
 }
 
 .popup-message-content {
-    background: linear-gradient(135deg, #8A2BE2, #FFD700); /* تدرج لوني خلفية الرسالة */
+    background: linear-gradient(135deg, #8A2BE2, #FFD700);
     padding: 30px;
     border-radius: 15px;
     width: 80%;
@@ -105,13 +99,13 @@ textarea:focus {
     text-align: center;
     color: #fff;
     font-weight: 600;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* ظل لتأثير التظليل */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .popup-message-content h3 {
     font-size: 2em;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* تأثير تظليل للنصوص */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .popup-message-content .close-btn {
@@ -130,7 +124,6 @@ textarea:focus {
     transform: scale(1.1);
 }
 
-/* الرسالة الخطأ */
 .error-message {
     background-color: #FF6347;
     color: #fff;
@@ -144,7 +137,6 @@ textarea:focus {
     animation: shake 0.5s ease-in-out;
 }
 
-/* تأثير حركة الرسالة الخطأ */
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
@@ -153,7 +145,6 @@ textarea:focus {
     100% { transform: translateX(0); }
 }
 
-/* تحسين استجابة النموذج لأجهزة مختلفة */
 @media (max-width: 768px) {
     .join-form {
         padding: 30px;
@@ -180,7 +171,6 @@ textarea:focus {
     }
 }
 
-/* تحسين الاستجابة للأجهزة المحمولة الأصغر (تحت 480px) */
 @media (max-width: 480px) {
     .join-form {
         padding: 20px;

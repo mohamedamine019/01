@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { db } from './firebase'; // تأكد من إعداد Firebase بشكل صحيح
+import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import './join.css'; // تأكد من ربط ملف CSS
+import './join.css';
 
 const Join = () => {
     const [formData, setFormData] = useState({
@@ -23,7 +23,6 @@ const Join = () => {
     const [popupMessage, setPopupMessage] = useState('');
     const [errors, setErrors] = useState({});
 
-    // تحديث بيانات النموذج
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -32,7 +31,6 @@ const Join = () => {
         }));
     };
 
-    // تحديث الملف المرفق
     const handleFileChange = (e) => {
         setFormData((prevData) => ({
             ...prevData,
@@ -40,12 +38,10 @@ const Join = () => {
         }));
     };
 
-    // التحقق من المدخلات وإرسال النموذج
     const handleSubmit = async (e) => {
         e.preventDefault();
         let errorFields = {};
 
-        // تحقق من الحقول المطلوبة
         if (!formData.firstName) errorFields.firstName = "الاسم الأول مطلوب!";
         if (!formData.lastName) errorFields.lastName = "الاسم الأخير مطلوب!";
         if (!formData.dob) errorFields.dob = "تاريخ الميلاد مطلوب!";
@@ -66,7 +62,7 @@ const Join = () => {
             console.log("Document written with ID: ", docRef.id);
             setPopupMessage('تم إرسال طلبك بنجاح!');
             setPopupActive(true);
-            setFormData({  // إعادة تعيين النموذج
+            setFormData({
                 firstName: '',
                 lastName: '',
                 dob: '',
@@ -88,7 +84,6 @@ const Join = () => {
         }
     };
 
-    // إغلاق الرسالة المنبثقة
     const closePopup = () => {
         setPopupActive(false);
     };
@@ -201,7 +196,6 @@ const Join = () => {
                 <button type="submit" className="submit-btn">إرسال</button>
             </form>
 
-            {/* رسالة منبثقة */}
             <div className={`popup-message ${popupActive ? 'active' : ''}`}>
                 <div className="popup-message-content">
                     <h3>{popupMessage}</h3>
