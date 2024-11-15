@@ -2,7 +2,8 @@
 
 .membre-card {
     position: relative;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
     border-radius: 20px;
     overflow: hidden;
@@ -11,15 +12,15 @@
     margin: 20px;
     background: linear-gradient(135deg, #6a4df9, #4e36cc);
     padding: 20px;
-  }
-  
-  .membre-card:hover {
+}
+
+.membre-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     background: linear-gradient(135deg, #4e36cc, #6a4df9);
-  }
-  
-  .membre-image {
+}
+
+.membre-image {
     position: relative;
     height: 200px;
     width: 200px;
@@ -27,63 +28,106 @@
     overflow: hidden;
     border-radius: 50%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .membre-img {
+}
+
+.membre-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
-  }
-  
-  .membre-card:hover .membre-img {
+}
+
+.membre-card:hover .membre-img {
     transform: scale(1.1);
-  }
-  
-  /* Member information overlay */
-  .membre-info {
+}
+
+/* Member information overlay */
+.membre-info {
     position: relative;
     padding: 15px;
     color: white;
-  }
-  
-  .membre-name {
+}
+
+.membre-name {
     font-size: 1.6em;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-  
-  .membre-description {
+}
+
+.membre-description {
     font-size: 1em;
     color: #f1f1f1;
     margin-bottom: 15px;
-  }
-  
-  /* Social media icons */
-  .membre-social-links {
+}
+
+/* Social media icons */
+.membre-social-links {
     display: flex;
     justify-content: center;
     gap: 20px;
     padding-top: 10px;
-  }
-  
-  .membre-social-links a {
+}
+
+.membre-social-links a {
     color: white;
     font-size: 1.7em;
     transition: transform 0.3s ease, color 0.3s ease;
-  }
-  
-  .membre-social-links a:hover {
+}
+
+.membre-social-links a:hover {
     transform: translateY(-5px);
     color: #f3a0c5;
-  }
-  
-  /* Membres List Styling */
-  .membres-list {
+}
+
+/* Membres List Styling */
+.membres-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
     padding: 20px;
-  }
-  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .membre-card {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .membre-name {
+        font-size: 1.4em;
+    }
+
+    .membre-description {
+        font-size: 0.9em;
+    }
+
+    .membre-social-links a {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .membre-card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .membre-image {
+        height: 150px;
+        width: 150px;
+    }
+
+    .membre-name {
+        font-size: 1.2em;
+    }
+
+    .membre-description {
+        font-size: 0.85em;
+    }
+
+    .membre-social-links a {
+        font-size: 1.3em;
+    }
+}

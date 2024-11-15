@@ -69,6 +69,7 @@ textarea:focus {
     transform: scale(1.05);
 }
 
+/* Popup message */
 .popup-message {
     position: fixed;
     top: 0;
@@ -124,6 +125,7 @@ textarea:focus {
     transform: scale(1.1);
 }
 
+/* Error message */
 .error-message {
     background-color: #FF6347;
     color: #fff;
@@ -145,19 +147,27 @@ textarea:focus {
     100% { transform: translateX(0); }
 }
 
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
     .join-form {
         padding: 30px;
         width: 95%;
         max-width: 100%;
+        margin: 30px auto;
     }
 
     .join-form h2 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
 
     .section h3 {
-        font-size: 1.5em;
+        font-size: 1.6em;
     }
 
     input,
@@ -167,7 +177,12 @@ textarea:focus {
     }
 
     .submit-btn {
-        font-size: 1.2em;
+        font-size: 1.3em;
+    }
+
+    .error-message {
+        padding: 10px;
+        font-size: 0.9em;
     }
 }
 
@@ -178,11 +193,11 @@ textarea:focus {
     }
 
     .join-form h2 {
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
 
     .section h3 {
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
 
     input,
@@ -192,6 +207,11 @@ textarea:focus {
     }
 
     .submit-btn {
-        font-size: 1em;
+        font-size: 1.1em;
+    }
+
+    .error-message {
+        padding: 8px;
+        font-size: 0.85em;
     }
 }
